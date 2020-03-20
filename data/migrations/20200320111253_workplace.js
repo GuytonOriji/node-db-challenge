@@ -1,6 +1,7 @@
+
 exports.up = function (knex) {
   return knex.schema
-    .createTable('projects', tbl_col => {
+    .createTable('projects', tbl_col => {//TABLE HERE********
       tbl_col
         .increments()
 
@@ -15,7 +16,8 @@ exports.up = function (knex) {
         .boolean('completed')
         .defaultTo(false)
     })
-    .createTable('resources', tbl_col => {
+
+    .createTable('resources', tbl_col => {//TABLE HERE********
       tbl_col
         .increments()
 
@@ -27,7 +29,7 @@ exports.up = function (knex) {
       tbl_col
         .varchar('description', 510)
     })
-    .createTable('tasks', tbl_col => {
+    .createTable('tasks', tbl_col => {//TABLE HERE********
       tbl_col
         .increments()
 
@@ -47,7 +49,7 @@ exports.up = function (knex) {
         .string('notes', 510)
 
     })
-    .createTable('project_resources', tbl_col => {
+    .createTable('project_resources', tbl_col => {//TABLE HERE********
       tbl_col
         .increments()
 

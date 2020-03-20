@@ -5,20 +5,20 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/BizRules.db3'
+      filename: './data/workplace.db3'
     },
-    useNullAsDefault:true,
-    pool:{
-      afterCreate:(connected,done)=>{
-        connected.run('PRAGMA foreign_keys = ON', done)
-      }
+    useNullAsDefault: true,
+    pool: {
+      afterCreate: (connected, done) => {
+        connected.run('PRAGMA foreign_keys = ON', done);
+      },
     },
-   migrations: {
-      directory: './migrations',
+    migrations: {
+      directory: './data/migrations',
       tableName: 'knex_migrations',
     },
     seeds: {
-      directory: './seeds',
+      directory: './data/seeds',
     },
   },
 
@@ -26,7 +26,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -42,7 +42,7 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'my_db',
-      user:     'username',
+      user: 'username',
       password: 'password'
     },
     pool: {

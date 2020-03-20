@@ -1,25 +1,29 @@
 const express = require('express')
 const helmet = require('helmet')
-
-		express().use(helmet)
-		express().use(express.json())
 const server = express()
-const projRouter = require('../router/proj.js')
-const recRouter = require('../router/rec.js')
-const taskRouter = require('../router/task.js')
+const projects = require('../routers/proj')
+const tasks = require('../routers/task')
+const resources = require('../routers/res')
 
 
 
 
-	server.get('/', (req,res)=>{
-		res.status(201).json({
-			msg:"good to go"
-		})
-	})
-	server.use('/api/projects', projRouter)
-	server.use('/api/recources', recRouter)
-	server.use('/api/task', taskRouter)
 
 
+server.use(helmet())
+server.use(express.json())
+
+
+server.get('/', (req, res) => {
+
+  res.status(201).json({
+  	msg: "GOOD TO GO!"
+  })
+
+})
+
+server.use('/api/resources', resources)
+server.use('/api/projects', projects)
+server.use('/api/tasks', tasks)
 
 module.exports = server
